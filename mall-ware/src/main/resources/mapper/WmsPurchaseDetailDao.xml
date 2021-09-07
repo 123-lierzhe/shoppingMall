@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liez.ware.dao.WmsPurchaseDetailDao">
+
+    <resultMap type="com.liez.ware.entity.WmsPurchaseDetail" id="WmsPurchaseDetailMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="purchaseId" column="purchase_id" jdbcType="INTEGER"/>
+        <result property="skuId" column="sku_id" jdbcType="INTEGER"/>
+        <result property="skuNum" column="sku_num" jdbcType="INTEGER"/>
+        <result property="skuPrice" column="sku_price" jdbcType="NUMERIC"/>
+        <result property="wareId" column="ware_id" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="WmsPurchaseDetailMap">
+        select id,
+               purchase_id,
+               sku_id,
+               sku_num,
+               sku_price,
+               ware_id,
+               status
+        from gulimall_wms.wms_purchase_detail
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="WmsPurchaseDetailMap">
+        select id,
+               purchase_id,
+               sku_id,
+               sku_num,
+               sku_price,
+               ware_id,
+               status
+        from gulimall_wms.wms_purchase_detail limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="WmsPurchaseDetailMap">
+        select
+        id, purchase_id, sku_id, sku_num, sku_price, ware_id, status
+        from gulimall_wms.wms_purchase_detail
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="purchaseId != null">
+                and purchase_id = #{purchaseId}
+            </if>
+            <if test="skuId != null">
+                and sku_id = #{skuId}
+            </if>
+            <if test="skuNum != null">
+                and sku_num = #{skuNum}
+            </if>
+            <if test="skuPrice != null">
+                and sku_price = #{skuPrice}
+            </if>
+            <if test="wareId != null">
+                and ware_id = #{wareId}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into gulimall_wms.wms_purchase_detail(purchase_id, sku_id, sku_num, sku_price, ware_id, status)
+        values (#{purchaseId}, #{skuId}, #{skuNum}, #{skuPrice}, #{wareId}, #{status})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into gulimall_wms.wms_purchase_detail(purchase_id, sku_id, sku_num, sku_price, ware_id, status)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.purchaseId}, #{entity.skuId}, #{entity.skuNum}, #{entity.skuPrice}, #{entity.wareId},
+            #{entity.status})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into gulimall_wms.wms_purchase_detail(purchase_id, sku_id, sku_num, sku_price, ware_id, status)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.purchaseId}, #{entity.skuId}, #{entity.skuNum}, #{entity.skuPrice}, #{entity.wareId},
+            #{entity.status})
+        </foreach>
+        on duplicate key update
+        purchase_id = values(purchase_id) , sku_id = values(sku_id) , sku_num = values(sku_num) , sku_price =
+        values(sku_price) , ware_id = values(ware_id) , status = values(status)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update gulimall_wms.wms_purchase_detail
+        <set>
+            <if test="purchaseId != null">
+                purchase_id = #{purchaseId},
+            </if>
+            <if test="skuId != null">
+                sku_id = #{skuId},
+            </if>
+            <if test="skuNum != null">
+                sku_num = #{skuNum},
+            </if>
+            <if test="skuPrice != null">
+                sku_price = #{skuPrice},
+            </if>
+            <if test="wareId != null">
+                ware_id = #{wareId},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from gulimall_wms.wms_purchase_detail
+        where id = #{id}
+    </delete>
+
+</mapper>
+
