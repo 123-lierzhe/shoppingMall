@@ -12,7 +12,6 @@ import java.util.List;
  * @author makejava
  * @since 2021-09-06 20:59:51
  */
-@Mapper
 public interface OmsOrderDao {
 
 	/**

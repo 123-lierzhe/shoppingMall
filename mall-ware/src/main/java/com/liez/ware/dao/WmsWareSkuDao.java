@@ -1,6 +1,7 @@
 package com.liez.ware.dao;
 
 import com.liez.ware.entity.WmsWareSku;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
  * @author makejava
  * @since 2021-09-07 20:25:51
  */
+@Mapper
 public interface WmsWareSkuDao {
 
 	/**

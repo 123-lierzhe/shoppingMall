@@ -12,7 +12,6 @@ import java.util.List;
  * @author makejava
  * @since 2021-09-06 21:13:11
  */
-@Mapper
 public interface PmsBrandDao {
 
 	/**

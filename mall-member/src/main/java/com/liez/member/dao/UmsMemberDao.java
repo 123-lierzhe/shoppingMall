@@ -12,7 +12,6 @@ import java.util.List;
  * @author makejava
  * @since 2021-09-06 20:22:15
  */
-@Mapper
 public interface UmsMemberDao {
 
 	/**

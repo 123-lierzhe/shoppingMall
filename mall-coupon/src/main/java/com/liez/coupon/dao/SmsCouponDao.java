@@ -12,7 +12,6 @@ import java.util.List;
  * @author makejava
  * @since 2021-08-27 16:53:06
  */
-@Mapper
 public interface SmsCouponDao {
 
 	/**

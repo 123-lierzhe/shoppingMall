@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liez.product.dao.PmsCategoryBrandRelationDao">
+
+    <resultMap type="com.liez.product.entity.PmsCategoryBrandRelation" id="PmsCategoryBrandRelationMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="brandId" column="brand_id" jdbcType="INTEGER"/>
+        <result property="catelogId" column="catelog_id" jdbcType="INTEGER"/>
+        <result property="brandName" column="brand_name" jdbcType="VARCHAR"/>
+        <result property="catelogName" column="catelog_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="PmsCategoryBrandRelationMap">
+        select id,
+               brand_id,
+               catelog_id,
+               brand_name,
+               catelog_name
+        from gulimall_pms.pms_category_brand_relation
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="PmsCategoryBrandRelationMap">
+        select id,
+               brand_id,
+               catelog_id,
+               brand_name,
+               catelog_name
+        from gulimall_pms.pms_category_brand_relation limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="PmsCategoryBrandRelationMap">
+        select
+        id, brand_id, catelog_id, brand_name, catelog_name
+        from gulimall_pms.pms_category_brand_relation
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="brandId != null">
+                and brand_id = #{brandId}
+            </if>
+            <if test="catelogId != null">
+                and catelog_id = #{catelogId}
+            </if>
+            <if test="brandName != null and brandName != ''">
+                and brand_name = #{brandName}
+            </if>
+            <if test="catelogName != null and catelogName != ''">
+                and catelog_name = #{catelogName}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into gulimall_pms.pms_category_brand_relation(brand_id, catelog_id, brand_name, catelog_name)
+        values (#{brandId}, #{catelogId}, #{brandName}, #{catelogName})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into gulimall_pms.pms_category_brand_relation(brand_id, catelog_id, brand_name, catelog_name)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.brandId}, #{entity.catelogId}, #{entity.brandName}, #{entity.catelogName})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into gulimall_pms.pms_category_brand_relation(brand_id, catelog_id, brand_name, catelog_name)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.brandId}, #{entity.catelogId}, #{entity.brandName}, #{entity.catelogName})
+        </foreach>
+        on duplicate key update
+        brand_id = values(brand_id) , catelog_id = values(catelog_id) , brand_name = values(brand_name) , catelog_name =
+        values(catelog_name)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update gulimall_pms.pms_category_brand_relation
+        <set>
+            <if test="brandId != null">
+                brand_id = #{brandId},
+            </if>
+            <if test="catelogId != null">
+                catelog_id = #{catelogId},
+            </if>
+            <if test="brandName != null and brandName != ''">
+                brand_name = #{brandName},
+            </if>
+            <if test="catelogName != null and catelogName != ''">
+                catelog_name = #{catelogName},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from gulimall_pms.pms_category_brand_relation
+        where id = #{id}
+    </delete>
+
+</mapper>
+
