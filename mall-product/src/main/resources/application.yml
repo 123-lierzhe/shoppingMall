@@ -35,6 +35,12 @@ spring:
     # 合并多个DruidDataSource的监控数据
     #useGlobalDataSourceStat: true
 
+  #配置nacos
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
 #  mybstis配置
 mybatis:
   configuration:

@@ -3,6 +3,7 @@ server:
 spring:
   application:
     name: service-coupon
+
 #数据库配置
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -33,6 +34,12 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     #useGlobalDataSourceStat: true
+
+#配置nacos
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
 
 #  mybstis配置
 mybatis:
