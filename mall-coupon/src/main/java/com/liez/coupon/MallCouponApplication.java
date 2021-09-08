@@ -1,4 +1,4 @@
-package com.liez;
+package com.liez.coupon;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
