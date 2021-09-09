@@ -5,12 +5,12 @@ spring:
     name: service-coupon
 
 #数据库配置
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.56.10:3306/gulimall_sms?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
-    username: root
-    password: root
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    driverClassName: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://192.168.56.10:3306/gulimall_sms?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
+#    username: root
+#    password: root
 
     initialSize: 1
     minIdle: 3
