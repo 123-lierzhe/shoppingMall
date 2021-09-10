@@ -5,14 +5,16 @@ spring:
         - id: test-gateway
           uri: https://www.baidu.com
           predicates:
-            - Quety=url,baidu
+            - Query=url,baidu
 
         - id: qq-gateway
           uri: https://www.qq.com
           predicates:
-            - Quety=url,qq
+            - Query=url,qq
     nacos:
       config:
         server-addr: 127.0.0.1:8848
   application:
     name: service-gateway
+server:
+  port: 10001
