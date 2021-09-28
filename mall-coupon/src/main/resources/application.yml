@@ -4,11 +4,11 @@ spring:
   application:
     name: service-coupon
 
-#数据库配置
+##数据库配置
 #  datasource:
 #    type: com.alibaba.druid.pool.DruidDataSource
 #    driverClassName: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://192.168.56.10:3306/gulimall_sms?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
+#    url: jdbc:mysql://180.76.180.113:3306/gulimall_sms?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
 #    username: root
 #    password: root
 
@@ -35,11 +35,11 @@ spring:
     # 合并多个DruidDataSource的监控数据
     #useGlobalDataSourceStat: true
 
-#配置nacos
+  #配置nacos
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: 180.76.180.113:8848
 
 #  mybstis配置
 mybatis:
