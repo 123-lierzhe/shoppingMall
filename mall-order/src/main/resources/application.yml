@@ -5,12 +5,12 @@ spring:
   application:
     name: service-order
   #数据库配置
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://180.76.180.113:3306/gulimall_oms?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
-    username: root
-    password: root
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    driverClassName: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://180.76.180.113:3306/gulimall_oms?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
+#    username: root
+#    password: root
 
     initialSize: 1
     minIdle: 3

@@ -16,5 +16,5 @@ spring:
         server-addr: 180.76.180.113:8848
   application:
     name: service-gateway
-server:
-  port: 10001
+#server:
+#  port: 10001
