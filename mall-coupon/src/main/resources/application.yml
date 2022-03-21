@@ -5,12 +5,12 @@ spring:
     name: service-coupon
 
 ##数据库配置
-#  datasource:
-#    type: com.alibaba.druid.pool.DruidDataSource
-#    driverClassName: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://180.76.180.113:3306/gulimall_sms?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
-#    username: root
-#    password: root
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://39.107.13.68:3306/gulimall_sms?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
+    username: liez
+    password: liez
 
     initialSize: 1
     minIdle: 3
@@ -39,7 +39,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 180.76.180.113:8848
+        server-addr: 39.107.13.68:8848
 
 #  mybstis配置
 mybatis:
