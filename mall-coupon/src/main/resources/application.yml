@@ -5,12 +5,12 @@ spring:
     name: service-coupon
 
 ##数据库配置
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://39.107.13.68:3306/gulimall_sms?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
-    username: liez
-    password: liez
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    driverClassName: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://39.107.13.68:3306/gulimall_sms?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
+#    username: liez
+#    password: liez
 
     initialSize: 1
     minIdle: 3
@@ -41,12 +41,12 @@ spring:
       discovery:
         server-addr: 39.107.13.68:8848
 
-#  mybstis配置
-mybatis:
-  configuration:
-    # 打印SQL语句
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-    map-underscore-to-camel-case: true
-    call-setters-on-nulls: true
-  mapper-locations: mapper/*Dao.xml
-  typeAliasesPackage: com.liez.coupon.entity
+##  mybstis配置
+#mybatis:
+#  configuration:
+#    # 打印SQL语句
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    map-underscore-to-camel-case: true
+#    call-setters-on-nulls: true
+#  mapper-locations: mapper/*Dao.xml
+#  typeAliasesPackage: com.liez.coupon.entity

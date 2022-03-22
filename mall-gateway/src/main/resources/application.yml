@@ -17,4 +17,4 @@ spring:
   application:
     name: service-gateway
 #server:
-#  port: 10001
+#  port: 10000

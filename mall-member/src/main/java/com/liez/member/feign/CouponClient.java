@@ -6,6 +6,10 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+/**
+ * 1.在启动类添加注解
+ * 2.写一个接口调用
+ */
 @FeignClient("service-coupon")
 public interface CouponClient {
 
